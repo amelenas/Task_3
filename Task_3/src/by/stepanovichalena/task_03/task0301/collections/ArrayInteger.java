@@ -1,33 +1,55 @@
 package by.stepanovichalena.task_03.task0301.collections;
 
+import by.stepanovichalena.task_03.exception.Task03Exception;
+
 import java.util.Arrays;
 
 public class ArrayInteger {
+    private String errorMessage = "Array is null.";
     private Integer[] array;
     private int size;
 
-    public ArrayInteger(Integer[] array) {
+    public ArrayInteger(Integer[] array) throws Task03Exception {
+        if (array == null) {throw new Task03Exception(errorMessage);
+        }
         this.array = array;
         size = array.length;
     }
 
-    public ArrayInteger(int[] array) {
-        int arrayLength = array.length;
-        Integer [] temp = new Integer[arrayLength];
-        for (int i =0; i< arrayLength; i++){
-            temp[i]=new Integer(array[i]);
+    public ArrayInteger(int[] array) throws Task03Exception {
+        if (array == null) {throw new Task03Exception(errorMessage);
         }
-        this.array = temp;
-        size = temp.length;
+        this.array = convertToInteger(array);
+        size = array.length;
     }
 
     public Integer[] getArray() {
         return array;
     }
 
-    public void setArray(Integer[] array) {
+    public int[] getIntArray() {
+        int arrayLength = array.length;
+        int[] tempArray = new int[arrayLength];
+        for (int i = 0; i < arrayLength; i++) {
+            tempArray[i] = array[i];
+        }
+        return tempArray;
+    }
+
+    public void setArray(Integer[] array) throws Task03Exception {
+        if (array == null) {throw new Task03Exception(errorMessage);
+        }
         this.array = array;
         size = array.length;
+    }
+
+    private Integer[] convertToInteger(int[] array) {
+        int arrayLength = array.length;
+        Integer[] temp = new Integer[arrayLength];
+        for (int i = 0; i < arrayLength; i++) {
+            temp[i] = array[i];
+        }
+        return temp;
     }
 
     public boolean contains(int number) {
@@ -81,28 +103,26 @@ public class ArrayInteger {
                     lastIndexOf = i + 1;
                 }
                 array[lastIndexOf] = null;
-                size--;
             } else {
                 array[index] = null;
-                size--;
             }
+            size--;
         }
     }
 
     public boolean remove(int number) {
         boolean result = false;
-            int j = 0;
-            for (int i = 0; i < array.length; i++) {
-                if (number == array[i]) {
-                    j = i;
-                    removeByIndex(j);
-                    reduceArraySize();
-                    result = true;
-                }
+        int j;
+        for (int i = 0; i < array.length; i++) {
+            if (number == array[i]) {
+                j = i;
+                removeByIndex(j);
+                reduceArraySize();
+                result = true;
             }
+        }
         return result;
     }
-
 
     public void clear() {
         for (int i = 0; i < array.length; i++) {

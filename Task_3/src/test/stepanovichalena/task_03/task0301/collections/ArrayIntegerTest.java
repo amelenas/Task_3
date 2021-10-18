@@ -1,6 +1,7 @@
-package test.stepanovichalena.task_03.collections;
+package test.stepanovichalena.task_03.task0301.collections;
 
 import by.stepanovichalena.task_03.task0301.collections.ArrayInteger;
+import by.stepanovichalena.task_03.exception.Task03Exception;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,7 +14,7 @@ public class ArrayIntegerTest {
 
 
     @Test
-    public void getArray(){
+    public void getArray() throws Task03Exception {
         ArrayInteger arrayInteger = new ArrayInteger(values);
         String expected = Arrays.toString(arrayInteger.getArray());
         String actual = Arrays.toString(values);
@@ -22,7 +23,7 @@ public class ArrayIntegerTest {
 
 
     @Test
-    public void containsTrue() {
+    public void containsTrue() throws Task03Exception {
         ArrayInteger arrayInteger = new ArrayInteger(values);
 
         boolean expected = true;
@@ -31,7 +32,7 @@ public class ArrayIntegerTest {
     }
 
     @Test
-    public void containsFalse() {
+    public void containsFalse() throws Task03Exception {
         ArrayInteger arrayInteger = new ArrayInteger(values);
 
         boolean expected = false;
@@ -40,32 +41,32 @@ public class ArrayIntegerTest {
     }
 
     @Test
-    public void add() {
+    public void add() throws Task03Exception {
         ArrayInteger arrayInteger = new ArrayInteger(values);
         assertTrue(arrayInteger.add(123));
     }
 
     @Test
-    public void removeTrue() {
+    public void removeTrue() throws Task03Exception {
         ArrayInteger arrayInteger = new ArrayInteger(values);
         assertTrue(arrayInteger.remove(3));
     }
     @Test
-    public void removeFalse() {
+    public void removeFalse() throws Task03Exception {
         ArrayInteger arrayInteger = new ArrayInteger(values);
         assertFalse(arrayInteger.remove(5465));
     }
 
 
     @Test
-    public void clear() {
+    public void clear() throws Task03Exception {
         ArrayInteger arrayInteger = new ArrayInteger(values);
         arrayInteger.clear();
-        assertTrue(arrayInteger.size() == 0);
+        assertEquals(0, arrayInteger.size());
     }
 
     @Test
-    public void size() {
+    public void size() throws Task03Exception {
         ArrayInteger arrayInteger = new ArrayInteger(values);
         int expected = 22;
         int actual = arrayInteger.size();
@@ -73,7 +74,7 @@ public class ArrayIntegerTest {
     }
 
     @Test
-    public void isEmptyTrue() {
+    public void isEmptyTrue() throws Task03Exception {
         ArrayInteger arrayInteger = new ArrayInteger(values);
         arrayInteger.clear();
         assertTrue(arrayInteger.isEmpty());
@@ -81,10 +82,16 @@ public class ArrayIntegerTest {
     }
 
     @Test
-    public void isEmptyFalse() {
+    public void isEmptyFalse() throws Task03Exception {
         ArrayInteger arrayInteger = new ArrayInteger(values);
         assertFalse(arrayInteger.isEmpty());
     }
 
 
+    @Test
+    public void getIntArray() throws Task03Exception {
+        ArrayInteger arrayInteger = new ArrayInteger(values);
+        int [] array = arrayInteger.getIntArray();
+        assertArrayEquals(array, values);
+    }
 }
