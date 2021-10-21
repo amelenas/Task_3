@@ -1,23 +1,25 @@
-package by.stepanovichalena.task_03.task0301.collections;
+package by.stepanovichalena.task_03.task0301.entity;
 
 import by.stepanovichalena.task_03.exception.Task03Exception;
 
 import java.util.Arrays;
 
 public class ArrayInteger {
-    private String errorMessage = "Array is null.";
+    private static String errorMessage = "Array is null.";
     private Integer[] array;
     private int size;
 
     public ArrayInteger(Integer[] array) throws Task03Exception {
-        if (array == null) {throw new Task03Exception(errorMessage);
+        if (array == null) {
+            throw new Task03Exception(errorMessage);
         }
         this.array = array;
         size = array.length;
     }
 
     public ArrayInteger(int[] array) throws Task03Exception {
-        if (array == null) {throw new Task03Exception(errorMessage);
+        if (array == null) {
+            throw new Task03Exception(errorMessage);
         }
         this.array = convertToInteger(array);
         size = array.length;
@@ -63,7 +65,7 @@ public class ArrayInteger {
     }
 
     public boolean add(int number) {
-        boolean result = false;
+        boolean result;
         if (size < array.length) {
             array[size] = number;
             size++;

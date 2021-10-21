@@ -3,9 +3,10 @@ package by.stepanovichalena.task_03.task0303.logic;
 import by.stepanovichalena.task_03.exception.Task03Exception;
 
 public class ReplaceWordOnSubstring {
+    private static final String errorMessage = "Text is empty.";
 
     public String replaceWordsRegular(String text, int length, String substring) throws Task03Exception {
-        if (text == null) throw new Task03Exception("String is null");
+        if (text == null) {throw new Task03Exception(errorMessage);}
 
         String[] words = text.split("\\b");
         StringBuilder result = new StringBuilder();
@@ -22,13 +23,13 @@ public class ReplaceWordOnSubstring {
     }
 
     public String replaceWords(String text, int length, String substring) throws Task03Exception {
-        if (text == null) throw new Task03Exception("String is null");
+        if (text == null) {throw new Task03Exception(errorMessage);}
         StringBuilder result = new StringBuilder();
-
-        for (String word : text.split("[ ,.?!]")) {
-            if (!(word.trim().length() == length)){
-                result.append(" ").append(word);
-            }else {
+        String pattern = "\\b";
+        for (String word : text.split(pattern)) {
+            if (!(word.trim().length() == length)) {
+                result.append(word);
+            } else {
                 result.append(" ").append(substring);
             }
         }

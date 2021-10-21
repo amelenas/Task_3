@@ -1,6 +1,6 @@
 package test.stepanovichalena.task_03.task0301.collections;
 
-import by.stepanovichalena.task_03.task0301.collections.ArrayInteger;
+import by.stepanovichalena.task_03.task0301.entity.ArrayInteger;
 import by.stepanovichalena.task_03.exception.Task03Exception;
 import org.junit.Test;
 

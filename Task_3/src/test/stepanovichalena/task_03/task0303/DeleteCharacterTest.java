@@ -1,13 +1,11 @@
 package test.stepanovichalena.task_03.task0303;
 
 import by.stepanovichalena.task_03.exception.Task03Exception;
-import by.stepanovichalena.task_03.task0303.logic.DeleteCharacters;
+import by.stepanovichalena.task_03.task0303.logic.DeleteCharacter;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class DeleteCharactersTest {
-    DeleteCharacters deleteCharacters = new DeleteCharacters();
+public class DeleteCharacterTest {
+    DeleteCharacter deleteCharacter = new DeleteCharacter();
     String text = "Christmas is one of the most popular holidays on the planet. It seems" +
             " strange but not everybody celebrate such a great holiday. It depends on " +
             "the religion and the culture of people. So, who does not celebrate this holiday?" +
@@ -17,14 +15,25 @@ public class DeleteCharactersTest {
             "that this holiday became too commercial.";
 
     @Test
-    public void deleteCharactersRegular() throws Task03Exception {
-        String t = deleteCharacters.deleteCharacters(text);
+    public void deleteSymbolsRegular() throws Task03Exception {
+        String t = deleteCharacter.deleteSymbols(text);
         System.out.println(t);
     }
 
     @Test
-    public void deleteCharacters() throws Task03Exception {
-        String t = deleteCharacters.deleteCharactersRegular(text);
+    public void deleteSymbols() throws Task03Exception {
+        String t = deleteCharacter.deleteSymbolsRegular(text);
         System.out.println(t);
+    }
+
+    @Test(expected = Task03Exception.class)
+    public void SymbolsRegularNull() throws Task03Exception {
+        String textNull = null;
+        deleteCharacter.deleteSymbolsRegular(textNull);
+    }
+
+    @Test(expected = Task03Exception.class)
+    public void SymbolsNull() throws Task03Exception {
+        String textNull = null; deleteCharacter.deleteSymbols(textNull);
     }
 }

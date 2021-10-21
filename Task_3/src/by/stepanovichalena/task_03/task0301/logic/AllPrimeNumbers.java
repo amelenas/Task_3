@@ -4,11 +4,9 @@ import by.stepanovichalena.task_03.exception.Task03Exception;
 
 public class AllPrimeNumbers {
 
-    private static String errorMessage = "Array is null.";
-
     public int[] allPrimeNumbers(int[] array) throws Task03Exception {
         if (array == null) {
-            throw new Task03Exception(errorMessage);
+            throw new Task03Exception("Array is null.");
         }
         int length = 0;
 

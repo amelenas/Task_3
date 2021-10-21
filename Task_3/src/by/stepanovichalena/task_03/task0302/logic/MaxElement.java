@@ -25,4 +25,3 @@ public class MaxElement implements CompareLogic {
         }
     }
 }
-

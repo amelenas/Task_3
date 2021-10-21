@@ -3,10 +3,9 @@ package by.stepanovichalena.task_03.task0301.logic;
 import by.stepanovichalena.task_03.exception.Task03Exception;
 
 public class FibonacciNumbers {
-    private static String errorMessage = "Array is null.";
 
     public int[] findFibonacciNumbers(int[] array) throws Task03Exception {
-        if (array == null) throw new Task03Exception(errorMessage);
+        if (array == null) throw new Task03Exception("Array is null.");
 
         int[] fibonacciArray = new int[array.length];
         int length = 0;
@@ -17,7 +16,6 @@ public class FibonacciNumbers {
         }
         int[] result = new int[length];
         System.arraycopy(fibonacciArray, 0, result, 0, length);
-
         return result;
     }
 

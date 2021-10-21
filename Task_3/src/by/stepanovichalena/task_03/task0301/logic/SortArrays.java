@@ -3,7 +3,7 @@ package by.stepanovichalena.task_03.task0301.logic;
 import by.stepanovichalena.task_03.exception.Task03Exception;
 
 public class SortArrays {
-    private static String errorMessage = "Array is null.";
+    private static final String errorMessage = "Array is null.";
 
     public void bubbleSort(int[] array) throws Task03Exception {
         if (array == null) {

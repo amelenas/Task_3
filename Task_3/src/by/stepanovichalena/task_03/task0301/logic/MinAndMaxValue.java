@@ -4,7 +4,7 @@ import by.stepanovichalena.task_03.exception.Task03Exception;
 
 
 public class MinAndMaxValue {
-    private static String errorMessage = "Array is null.";
+    private static final String errorMessage = "Array is null.";
 
     public int maxValue(int[] array) throws Task03Exception {
         if (array == null) throw new Task03Exception(errorMessage);

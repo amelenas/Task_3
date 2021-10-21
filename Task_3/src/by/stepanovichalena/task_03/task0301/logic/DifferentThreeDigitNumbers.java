@@ -3,10 +3,9 @@ package by.stepanovichalena.task_03.task0301.logic;
 import by.stepanovichalena.task_03.exception.Task03Exception;
 
 public class DifferentThreeDigitNumbers {
-    private static String errorMessage = "Array is null.";
 
     public int[] findThreeDifferentDigits(int[] array) throws Task03Exception {
-        if (array == null) throw new Task03Exception(errorMessage);
+        if (array == null) throw new Task03Exception("Array is null.");
 
         int[] tempArray = new int[array.length];
         int length = 0;
@@ -20,25 +19,28 @@ public class DifferentThreeDigitNumbers {
     }
 
     private boolean isThreeDigitNumber(int number) {
+        final int minLimit = 99;
+        final int maxLimit = 1000;
         int moduleNumber = Math.abs(number);
-        return moduleNumber > 99 && moduleNumber < 1000;
+        return moduleNumber > minLimit && moduleNumber < maxLimit;
     }
 
     private boolean isSameDigit(int number) {
         boolean isSame = false;
-        boolean[] digits = new boolean[10];
+        int dozen = 10;
+        boolean[] digits = new boolean[dozen];
         int iteration = 0;
-        while (iteration < 11 && number != 0) {
-            int digit = number % 10;
+        while (iteration <= dozen && number != 0) {
+            int digit = number % dozen;
             if (digits[digit]) {
                 isSame = true;
                 break;
             }
             digits[digit] = true;
-            number /= 10;
+            number /= dozen;
             iteration++;
         }
-        if (iteration > 10) isSame = true;
+        if (iteration > dozen) isSame = true;
         return isSame;
     }
 }

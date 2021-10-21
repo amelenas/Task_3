@@ -24,4 +24,3 @@ public class SumOfElements implements CompareLogic {
     }
 
 }
-

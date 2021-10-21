@@ -58,9 +58,4 @@ public class Readers {
         }
         return textLines;
     }
-
-    public static void main(String[] args) {
-        Readers readers = new Readers();
-        System.out.println(readers.readStringFromFile("C:/Users/user/Desktop/ew.txt"));
-    }
 }
